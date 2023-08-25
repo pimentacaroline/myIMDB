@@ -15,4 +15,4 @@ const container = document.querySelector("#root");
 const root = createRoot(container);
 
 // Tells React to render the app in the root DOM element
-root.render(<MyFlixApplcation />);
+root.render(<MyFlixApplication />);
