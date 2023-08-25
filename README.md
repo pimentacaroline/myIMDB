@@ -1,19 +1,19 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>myIMDB</b></h3>
+  <h1><b>myIMDB</b></h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
 
-# 📗 Table of Contents
+# Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [👥 Author](#authors)
+- [About the Project](#about-project)
+- [Built With](#built-with)
+	- [Tech Stack](#tech-stack)
+	- [Key Features](#key-features)
+	- [Live Demo](#live-demo)
+- [Author](#authors)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -21,7 +21,6 @@
 
 myIMDB is a client-side app that connects with a movie database and allow user to find information about movies and bookmark them in a personal list.
 
-**[your_project__name]** is a...
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -41,7 +40,7 @@ MERN (MongoDB, Express, React, and Node.js)
 
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link - cooming soon](https://google.com)
 
@@ -50,7 +49,7 @@ MERN (MongoDB, Express, React, and Node.js)
 
 <!-- AUTHORS -->
 
-##👤 Author <a name="authors"></a>
+## Author <a name="authors"></a>
 
 **Caroline Pimenta**
 
