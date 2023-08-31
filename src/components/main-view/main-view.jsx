@@ -21,8 +21,8 @@ export const MainView = () => {
 			headers: { Authorization: `Bearer ${token}` }
 		})
 			.then((response) => response.json())
-			.then((movies) => {
-				setMovies(movies);
+			.then((data) => {
+				setMovies(data);
 			});
 	}, [token]);
 
@@ -52,18 +52,18 @@ export const MainView = () => {
 
 	return (
 		<div>
-			<button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>
-				Logout
-			</button>
-			{books.map((book) => (
-				<BookCard
-					key={book.id}
-					book={book}
-					onBookClick={(newSelectedBook) => {
-						setSelectedBook(newSelectedBook);
+			{movies.map((movie) => (
+				<MovieCard
+					key={movie._id}
+					movie={movie}
+					onMovieClick={(newSelectedMovie) => {
+						setSelectedMovie(newSelectedMovie);
 					}}
 				/>
 			))}
+			<button onClick={() => { setUser(null); setToken(null); localStorage.clear(); }}>
+				Logout
+			</button>
 		</div>
 	);
 };
