@@ -4,48 +4,25 @@ import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
+	const storedUser = JSON.parse(localStorage.getItem("user"));
+	const storedToken = localStorage.getItem("token");
+	const [user, setUser] = useState(storedUser? storedUser:null);
+	const [token, setToken] = useState(storedToken? storedToken:null);
 	const [movies, setMovies] = useState([]);
 	const [selectedMovie, setSelectedMovie] = useState(null);
-	const [user, setUser] = useState(null);
-	const [token, setToken] = useState(null);
+
 
 	useEffect(() => {
-    if (!token) {
-      return;
-    }
+    if (!token) return;
 
     fetch("https://cp-movies-api-41b2d280c95b.herokuapp.com/movies", {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      .then((movies) => {
+        setMovies(movies);
       });
   }, [token]);
-
-	// useEffect(() => {
-	// 	fetch("https://cp-movies-api-41b2d280c95b.herokuapp.com/movies")
-	// 		.then((response) => response.json())
-	// 		.then((data) => {
-	// 			const moviesFromApi = data.map((movie) => {
-	// 				return {
-	// 					_id: movie.id,
-	// 					Title: movie.Title,
-	// 					ImagePath: movie.ImagePath,
-	// 					Description: movie.Description,
-	// 					Genre: {
-	// 						Name: movie.Genre.Name
-	// 					},
-	// 					Director: {
-	// 						Name: movie.Director.Name
-	// 					},
-	// 					Featured: movie.Featured
-	// 				};
-	// 			});
-
-	// 			setMovies(moviesFromApi);
-	// 		});
-	// }, []);
 
 	if (!user) {
     return (
@@ -70,7 +47,7 @@ export const MainView = () => {
 
   return (
     <div>
-      <button onClick={() => {setUser(null); setToken(null);}}>
+      <button onClick={() => {setUser(null); setToken(null); localStorage.clear();}}>
         Logout
       </button>
       {books.map((book) => (
