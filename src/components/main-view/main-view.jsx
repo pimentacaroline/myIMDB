@@ -7,33 +7,55 @@ export const MainView = () => {
 	const [movies, setMovies] = useState([]);
 	const [selectedMovie, setSelectedMovie] = useState(null);
 	const [user, setUser] = useState(null);
+	const [token, setToken] = useState(null);
 
 	useEffect(() => {
-		fetch("https://cp-movies-api-41b2d280c95b.herokuapp.com/movies")
-			.then((response) => response.json())
-			.then((data) => {
-				const moviesFromApi = data.map((movie) => {
-					return {
-						_id: movie.id,
-						Title: movie.Title,
-						ImagePath: movie.ImagePath,
-						Description: movie.Description,
-						Genre: {
-							Name: movie.Genre.Name
-						},
-						Director: {
-							Name: movie.Director.Name
-						},
-						Featured: movie.Featured
-					};
-				});
+    if (!token) {
+      return;
+    }
 
-				setMovies(moviesFromApi);
-			});
-	}, []);
+    fetch("https://cp-movies-api-41b2d280c95b.herokuapp.com/movies", {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, [token]);
+
+	// useEffect(() => {
+	// 	fetch("https://cp-movies-api-41b2d280c95b.herokuapp.com/movies")
+	// 		.then((response) => response.json())
+	// 		.then((data) => {
+	// 			const moviesFromApi = data.map((movie) => {
+	// 				return {
+	// 					_id: movie.id,
+	// 					Title: movie.Title,
+	// 					ImagePath: movie.ImagePath,
+	// 					Description: movie.Description,
+	// 					Genre: {
+	// 						Name: movie.Genre.Name
+	// 					},
+	// 					Director: {
+	// 						Name: movie.Director.Name
+	// 					},
+	// 					Featured: movie.Featured
+	// 				};
+	// 			});
+
+	// 			setMovies(moviesFromApi);
+	// 		});
+	// }, []);
 
 	if (!user) {
-    return <LoginView onLoggedIn={(user) => setUser(user)}/>;
+    return (
+			<LoginView 
+				onLoggedIn={(user, token) => {
+					setUser(user);
+					setToken(token);
+				}}
+			/>
+		);
   }
 
 	if (selectedMovie) {
@@ -48,7 +70,7 @@ export const MainView = () => {
 
   return (
     <div>
-      <button onClick={() => {setUser(null);}}>
+      <button onClick={() => {setUser(null); setToken(null);}}>
         Logout
       </button>
       {books.map((book) => (
