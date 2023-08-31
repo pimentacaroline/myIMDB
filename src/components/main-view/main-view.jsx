@@ -46,17 +46,21 @@ export const MainView = () => {
 		return <div>The list is empty!</div>
 	}
 
-	return (
-		<div>
-			{movies.map((movie) => (
-				<MovieCard
-					key={movie._id}
-					movie={movie}
-					onMovieClick={(newSelectedMovie) => {
-						setSelectedMovie(newSelectedMovie);
-					}}
-				/>
-			))}
-		</div>
-	);
+  return (
+    <div>
+      <button onClick={() => {setUser(null);}}>
+        Logout
+      </button>
+      {books.map((book) => (
+        <BookCard
+          key={book.id}
+          book={book}
+          onBookClick={(newSelectedBook) => {
+            setSelectedBook(newSelectedBook);
+          }}
+        />
+      ))}
+    </div>
+  );
 };
+
