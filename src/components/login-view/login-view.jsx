@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import { Button, Form } from "react-bootstrap";
 
@@ -62,7 +61,7 @@ export const LoginView = ({ onLoggedIn }) => {
 					required
 				/>
 			</Form.Group>
-			
+
 			<Button variant="primary" type="submit">Submit</Button>
 		</Form>
 	);
