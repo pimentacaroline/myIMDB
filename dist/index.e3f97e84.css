@@ -1,28 +1,60 @@
+.custom-card {
+  border-style: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px #0003, 0 6px 20px #00000030;
+}
+
+.info-button {
+  padding-left: 0;
+  text-decoration: none;
+}
+
+.card-image {
+  padding: 12px;
+}
+
+.movie-view {
+  background-color: #0ff;
+}
+
+.movie-info {
+  background-color: #ededed;
+  padding: 40px !important;
+}
+
+.movie-image {
+  background-color: #8a2be2;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 0 !important;
+}
+
+.poster-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 .back-button {
   color: #f5f5f5;
   cursor: pointer;
   background-color: #1e90ff;
   border: none;
   border-radius: 4px;
+  margin-top: 50px;
   padding: 4px 12px;
 }
 
-img {
-  width: 100%;
-}
-
-.signup-form {
-  background-color: #51bbad;
-  border-color: #000;
-  border-radius: 8px;
-  padding: 40px;
+.custom-link-button {
+  padding-left: 0 !important;
 }
 
 .form-group {
   padding-top: 16px;
 }
 
-.submit-button {
+.custom-button {
   margin-top: 32px;
 }
 
@@ -30,7 +62,7 @@ img {
   text-align: center;
 }
 
-.signup-form {
+.authentication-form {
   background-color: #d7d8d8;
   border-color: #000;
   border-radius: 8px;
@@ -47,6 +79,18 @@ img {
 
 .form-title {
   text-align: center;
+}
+
+.cards-container {
+  padding: 60px 40px;
+}
+
+.logout {
+  text-align: center;
+  background-color: #ededed;
+  margin-bottom: 100px;
+  padding: 20px;
+  margin-top: 50px !important;
 }
 
 :root, [data-bs-theme="light"] {
@@ -13249,4 +13293,4 @@ textarea.form-control-lg {
   }
 }
 
-/*# sourceMappingURL=index.5f1df611.css.map */
+/*# sourceMappingURL=index.e3f97e84.css.map */
