@@ -1,21 +1,26 @@
 import PropTypes from 'prop-types';
+import { Button, Card, Row } from "react-bootstrap";
+import './movie-card.scss';
 
-export const MovieCard = ({movie, onMovieClick}) => {
-	return (
-		<div
-			onClick={() => {
-				onMovieClick(movie);
-			}}
-		>
-			{movie.Title}
-		</div>
-	);
+export const MovieCard = ({ movie, onMovieClick }) => {
+  return (
+        <Card className="h-100 custom-card" onClick={() => onMovieClick(movie)} style={{ cursor: "pointer" }}>
+          <Card.Img variant="top" src={movie.ImagePath} className="card-image" />
+          <Card.Body>
+            <Card.Title>{movie.Title}</Card.Title>
+            {/* <Card.Text>{movie.Genre.Name}</Card.Text> */}
+            <Button onClick={() => onMovieClick(movie)} variant="link" className='custom-link-button'>
+              More info
+            </Button>
+          </Card.Body>
+        </Card>
+  );
 };
 
 MovieCard.propTypes = {
-	movie: PropTypes.shape ({
-		title: PropTypes.string.isRequired,
-		image: PropTypes.string.isRequired
-	}).isRequired,
-	onMovieClick: PropTypes.func.isRequired
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+  }).isRequired,
+  onMovieClick: PropTypes.func.isRequired
 };
