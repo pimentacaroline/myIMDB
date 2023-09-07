@@ -102,10 +102,6 @@
   padding-top: 32px;
 }
 
-.favorite-movies {
-  background-color: #0ff;
-}
-
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

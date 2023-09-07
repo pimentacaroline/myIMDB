@@ -3,14 +3,14 @@ import { MovieCard } from '../movie-card/movie-card';
 import { Button, Col, Form, Row, Modal } from 'react-bootstrap';
 import './profile-view.scss';
 
-export const ProfileView = ({ user, token, setUser, movies, MovieCard }) => {
+export const ProfileView = ({ user, token, setUser, movies, onLoggedOut }) => {
 	const [username, setUsername] = useState(user.Username);
 	const [password, setPassword] = useState("");
 	const [email, setEmail] = useState(user.Email);
 	const [birthday, setBirthday] = useState(user.Birthday);
 	const [showModal, setShowModal] = useState(false);
-
-	let favoriteMovies = movies.filter((movie) => {
+	
+	const favoriteMovies = movies.filter((movie) => {
 		return user.FavoriteMovies.includes(movie._id)
 	});
 
@@ -100,7 +100,7 @@ export const ProfileView = ({ user, token, setUser, movies, MovieCard }) => {
 								required
 							/>
 						</Form.Group>
-
+						
 						<Form.Group controlId="formBirthday" className='form-group'>
 							<Form.Label>Birthday:</Form.Label>
 							<Form.Control
@@ -117,7 +117,7 @@ export const ProfileView = ({ user, token, setUser, movies, MovieCard }) => {
 
 			<Row>
 				<Col className='save-button'>
-					<Button variant="primary" type="submit" onClick={handleSubmit}>Save changes</Button>
+				<Button variant="primary" type="submit" onClick={handleSubmit}>Save changes</Button>
 				</Col>
 			</Row>
 
@@ -139,17 +139,6 @@ export const ProfileView = ({ user, token, setUser, movies, MovieCard }) => {
 					<Button variant="secondary" onClick={handleCloseModal}>No</Button>
 				</Modal.Footer>
 			</Modal>
-
-			<Row className='favorite-movies'>
-				<Col>
-					<h2>Favorite movies:</h2>
-					{favoriteMovies.map((movie) => (
-						<Col key={movie._id} md={4}>
-							<MovieCard movie={movie}></MovieCard>
-						</Col>
-					))}
-				</Col>
-			</Row>
 		</>
 	)
 }
