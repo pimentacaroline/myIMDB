@@ -14,7 +14,7 @@
 }
 
 .movie-view {
-  background-color: #0ff;
+  padding-top: 50px;
 }
 
 .movie-info {
@@ -62,6 +62,18 @@
   text-align: center;
 }
 
+.cards-container {
+  padding: 60px 40px;
+}
+
+.logout {
+  text-align: center;
+  background-color: #ededed;
+  margin-bottom: 100px;
+  padding: 20px;
+  margin-top: 50px !important;
+}
+
 .authentication-form {
   background-color: #d7d8d8;
   border-color: #000;
@@ -79,18 +91,6 @@
 
 .form-title {
   text-align: center;
-}
-
-.cards-container {
-  padding: 60px 40px;
-}
-
-.logout {
-  text-align: center;
-  background-color: #ededed;
-  margin-bottom: 100px;
-  padding: 20px;
-  margin-top: 50px !important;
 }
 
 :root, [data-bs-theme="light"] {
