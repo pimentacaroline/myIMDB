@@ -27370,7 +27370,7 @@ const MovieCard = ({ movie, user, token, updatedUser })=>{
     _s();
     const [isFavorite, setIsFavorite] = (0, _react.useState)();
     const addFavoriteMovie = ()=>{
-        fetch(`https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie.Title}`, {
+        fetch(`https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie._id}`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -27392,7 +27392,7 @@ const MovieCard = ({ movie, user, token, updatedUser })=>{
         });
     };
     const removeFavoriteMovie = ()=>{
-        fetch(`https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie.Title}`, {
+        fetch(`https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie._id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`

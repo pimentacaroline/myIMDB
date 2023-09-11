@@ -10,7 +10,7 @@ export const MovieCard = ({ movie, user, token, updatedUser }) => {
 
   const addFavoriteMovie = () => {
     fetch(
-      `https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie.Title}`,
+      `https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
       {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` }
@@ -37,7 +37,7 @@ export const MovieCard = ({ movie, user, token, updatedUser }) => {
   };
   const removeFavoriteMovie = () => {
     fetch(
-      `https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie.Title}`,
+      `https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
       {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
