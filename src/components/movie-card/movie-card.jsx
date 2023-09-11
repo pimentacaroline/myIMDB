@@ -1,20 +1,92 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card } from 'react-bootstrap';
+import { Button, Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './movie-card.scss';
 
-export const MovieCard = ({ movie }) => {
+export const MovieCard = ({ movie, user, token, updatedUser }) => {
+
+  const [isFavorite, setIsFavorite] = useState();
+
+  const addFavoriteMovie = () => {
+    fetch(
+      `https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie.Title}`,
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` }
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          alert('Failed');
+          return false;
+        }
+      })
+      .then((user) => {
+        if (user) {
+          alert('successfully added to favorites');
+          setIsFavorite(true);
+          updatedUser(user);
+        }
+      })
+      .catch((e) => {
+        alert(e);
+      });
+  };
+  const removeFavoriteMovie = () => {
+    fetch(
+      `https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie.Title}`,
+      {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` }
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          alert('Failed');
+          return false;
+        }
+      })
+      .then((user) => {
+        if (user) {
+          alert('successfully deleted from favorites');
+          setIsFavorite(false);
+          updatedUser(user);
+        }
+      })
+      .catch((e) => {
+        alert(e);
+      });
+  };
+
   return (
-        <Card className="h-100 custom-card" >
-          <Card.Img variant="top" src={movie.ImagePath} className="card-image" />
-          <Card.Body>
-            <Card.Title>{movie.Title}</Card.Title>
-            {/* <Card.Text>{movie.Genre.Name}</Card.Text> */}
-            <Link to={`/movies/${encodeURIComponent(movie._id)}`}>
-             <Button variant="link"> More info</Button>
-            </Link>
-          </Card.Body>
-        </Card>
+    <>
+      <Card className='h-100 card text-bg-dark mb-3'>
+        <Card.Img className='w-100' variant='top' src={movie.ImagePath} />
+        <Card.Body>
+            {isFavorite ? (
+              <Button variant='danger' onClick={removeFavoriteMovie}>
+                Remove from favorite
+              </Button>
+            ) : (
+              <Button variant='primary' onClick={addFavoriteMovie}>
+                Add to favorite
+              </Button>
+            )}
+        </Card.Body>
+
+        <Card.Body>
+          <Link to={`/movies/${movie._id}`}>
+            <Button className='info-button' variant='outline-light'>More Info</Button>
+          </Link>
+        </Card.Body>
+
+      </Card>
+    </>
   );
 };
 

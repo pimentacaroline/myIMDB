@@ -5,8 +5,7 @@
 }
 
 .info-button {
-  padding-left: 0;
-  text-decoration: none;
+  padding-top: 40px;
 }
 
 .card-image {
@@ -62,18 +61,6 @@
   text-align: center;
 }
 
-.cards-container {
-  padding: 60px 40px;
-}
-
-.logout {
-  text-align: center;
-  background-color: #ededed;
-  margin-bottom: 100px;
-  padding: 20px;
-  margin-top: 50px !important;
-}
-
 .authentication-form {
   background-color: #d7d8d8;
   border-color: #000;
@@ -100,6 +87,23 @@
 
 .save-button {
   padding-top: 32px;
+}
+
+.favorite-title {
+  padding-top: 50px;
+  padding-bottom: 25px;
+}
+
+.cards-container {
+  padding: 60px 40px;
+}
+
+.logout {
+  text-align: center;
+  background-color: #ededed;
+  margin-bottom: 100px;
+  padding: 20px;
+  margin-top: 50px !important;
 }
 
 :root, [data-bs-theme="light"] {

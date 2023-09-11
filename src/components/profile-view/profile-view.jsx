@@ -9,7 +9,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLoggedOut }) => {
 	const [email, setEmail] = useState(user.Email);
 	const [birthday, setBirthday] = useState(user.Birthday);
 	const [showModal, setShowModal] = useState(false);
-	
+
 	const favoriteMovies = movies.filter((movie) => {
 		return user.FavoriteMovies.includes(movie._id)
 	});
@@ -100,7 +100,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLoggedOut }) => {
 								required
 							/>
 						</Form.Group>
-						
+
 						<Form.Group controlId="formBirthday" className='form-group'>
 							<Form.Label>Birthday:</Form.Label>
 							<Form.Control
@@ -117,7 +117,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLoggedOut }) => {
 
 			<Row>
 				<Col className='save-button'>
-				<Button variant="primary" type="submit" onClick={handleSubmit}>Save changes</Button>
+					<Button variant="primary" type="submit" onClick={handleSubmit}>Save changes</Button>
 				</Col>
 			</Row>
 
@@ -127,6 +127,19 @@ export const ProfileView = ({ user, token, setUser, movies, onLoggedOut }) => {
 						Delete my account
 					</Button>
 				</Col>
+			</Row>
+
+			<Row>
+				<Col>
+					<h3 className='favorite-title'>Favorite movies:</h3>
+				</Col>
+			</Row>
+			<Row>	
+				{favoriteMovies.map((movie) => (
+					<Col className="mb-5" key={movie.id} md={4}>
+						<MovieCard movie={movie} user={user}></MovieCard>
+					</Col>
+				))}
 			</Row>
 
 			<Modal show={showModal} onHide={handleCloseModal}>
