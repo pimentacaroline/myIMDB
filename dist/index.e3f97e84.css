@@ -5,7 +5,8 @@
 }
 
 .info-button {
-  padding-top: 40px;
+  padding-left: 0;
+  text-decoration: none;
 }
 
 .card-image {
@@ -87,11 +88,6 @@
 
 .save-button {
   padding-top: 32px;
-}
-
-.favorite-title {
-  padding-top: 50px;
-  padding-bottom: 25px;
 }
 
 .cards-container {
