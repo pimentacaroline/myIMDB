@@ -20,12 +20,14 @@ export const ProfileView = ({ user, token, setUser, movies, onLoggedOut }) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		const data = {
+		let data = {
 			Username: username,
-			Password: password,
 			Email: email,
 			Birthday: birthday
 		};
+		if(password) {
+			data['Password'] = password
+		}
 
 		fetch(`https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}`, {
 			method: "PUT",
