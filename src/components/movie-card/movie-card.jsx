@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Col } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './movie-card.scss';
 
-export const MovieCard = ({ movie, user, token, updatedUser }) => {
+export const MovieCard = ({ movie, user, token }) => {
 
-  const [isFavorite, setIsFavorite] = useState();
+  const [isFavorite, setIsFavorite] = useState(
+    user.FavoriteMovies.includes(movie._id)
+  );
 
   const addFavoriteMovie = () => {
     fetch(
@@ -28,13 +30,13 @@ export const MovieCard = ({ movie, user, token, updatedUser }) => {
         if (user) {
           alert('successfully added to favorites');
           setIsFavorite(true);
-          // updatedUser(user);
         }
       })
       .catch((e) => {
         alert(e);
       });
   };
+
   const removeFavoriteMovie = () => {
     fetch(
       `https://cp-movies-api-41b2d280c95b.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
@@ -55,7 +57,6 @@ export const MovieCard = ({ movie, user, token, updatedUser }) => {
         if (user) {
           alert('successfully deleted from favorites');
           setIsFavorite(false);
-          updatedUser(user);
         }
       })
       .catch((e) => {
