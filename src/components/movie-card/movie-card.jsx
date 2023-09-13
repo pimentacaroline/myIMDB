@@ -28,7 +28,7 @@ export const MovieCard = ({ movie, user, token, updatedUser }) => {
         if (user) {
           alert('successfully added to favorites');
           setIsFavorite(true);
-          updatedUser(user);
+          // updatedUser(user);
         }
       })
       .catch((e) => {
