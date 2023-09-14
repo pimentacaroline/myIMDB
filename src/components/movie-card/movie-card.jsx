@@ -4,7 +4,7 @@ import { Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './movie-card.scss';
 
-export const MovieCard = ({ movie, user, token }) => {
+export const MovieCard = ({ movie, user, token, setUser }) => {
 
   const [isFavorite, setIsFavorite] = useState(
     user.FavoriteMovies.includes(movie._id)
@@ -29,6 +29,8 @@ export const MovieCard = ({ movie, user, token }) => {
       .then((user) => {
         if (user) {
           alert('successfully added to favorites');
+          localStorage.setItem("user", JSON.stringify(user)); // updating user on local storage
+          setUser(user); // updating the react application
           setIsFavorite(true);
         }
       })
@@ -56,6 +58,8 @@ export const MovieCard = ({ movie, user, token }) => {
       .then((user) => {
         if (user) {
           alert('successfully deleted from favorites');
+          localStorage.setItem("user", JSON.stringify(user)); // updating user on local storage
+          setUser(user); // updating the react application
           setIsFavorite(false);
         }
       })
