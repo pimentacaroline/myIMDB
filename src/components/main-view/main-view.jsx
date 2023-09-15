@@ -5,6 +5,7 @@ import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
 import { ProfileView } from '../profile-view/profile-view';
+import { SearchForm } from '../search-form/search-form';
 import { Row, Col } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Spinner } from '../spinner/spinner';
@@ -18,6 +19,15 @@ export const MainView = () => {
 	const [movies, setMovies] = useState([]);
 	const [loading, setLoading] = useState(true);
 
+	const handleSearch = (searchTerm) => {
+		// Filter the movies based on the search term
+		const filteredMovies = movies.filter((movie) =>
+			movie.Title.toLowerCase().includes(searchTerm.toLowerCase())
+		);
+	
+		// Update the movies state with the filtered results
+		setMovies(filteredMovies);
+	};
 
 	useEffect(() => {
 		if (!token) return;
@@ -111,6 +121,11 @@ export const MainView = () => {
 									<Col>The list is absolutely empty!</Col>
 								) : (
 									<>
+										<Row>
+											<Col>
+											<SearchForm onSearch={handleSearch} />
+											</Col>
+										</Row>
 										{movies.map((movie) => (
 											<Col key={movie._id} md={3} className='gy-4 gx-4' >
 												<MovieCard 
