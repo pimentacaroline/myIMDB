@@ -1,7 +1,12 @@
-import { Button, Card, Container, Row, Col } from "react-bootstrap";
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+import { Button, Row, Col } from "react-bootstrap";
 import "./movie-view.scss";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies }) => {
+	const {movieId} = useParams();
+	const movie = movies.find((m) => m._id === movieId);
+
 	return (
 
 		<>
@@ -24,10 +29,9 @@ export const MovieView = ({ movie, onBackClick }) => {
 						<span>{movie.Genre.Name}</span>
 					</div>
 					<div>
-						<Button
-							onClick={onBackClick}
-							className="back-button">
-							Back</Button>
+						<Link to={`/`}>
+							<Button className="back-button">Back</Button>
+						</Link>
 					</div>
 				</Col>
 			</Row>

@@ -27,7 +27,7 @@ export const SignupView = () => {
 			}
 		}).then ((response) => {
 			if (response.ok) {
-				alert("Signup successful");
+				alert("Signup successful! Please login.");
 				window.location.reload();
 			} else {
 				alert("Signup failed");
@@ -40,7 +40,7 @@ export const SignupView = () => {
 			
 			<h2 className="form-title">Create your account</h2>
 
-			<Form.Group className="form-group" controlID="formUsername">
+			<Form.Group className="form-group" controlId="formUsername">
 				<Form.Label>Username:</Form.Label>	
 				<Form.Control
 					type="text"
