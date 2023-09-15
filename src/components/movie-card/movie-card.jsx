@@ -70,7 +70,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
 
   return (
     <>
-      <Card className='h-100 card text-bg-dark mb-3'>
+      <Card className='h-100 card text-bg-dark '>
         <Card.Img className='w-100' variant='top' src={movie.ImagePath} />
         <Card.Body>
             {isFavorite ? (

@@ -4,9 +4,10 @@ import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
-import { ProfileView } from "../profile-view/profile-view";
+import { ProfileView } from '../profile-view/profile-view';
 import { Row, Col } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Spinner } from '../spinner/spinner';
 import './main-view.scss';
 
 export const MainView = () => {
@@ -15,16 +16,20 @@ export const MainView = () => {
 	const [user, setUser] = useState(storedUser ? storedUser : null);
 	const [token, setToken] = useState(storedToken ? storedToken : null);
 	const [movies, setMovies] = useState([]);
+	const [loading, setLoading] = useState(true);
+
 
 	useEffect(() => {
 		if (!token) return;
 
+		setLoading(true);
 		fetch('https://cp-movies-api-41b2d280c95b.herokuapp.com/movies', {
 			headers: { Authorization: `Bearer ${token}` }
 		})
 			.then((response) => response.json())
 			.then((data) => {
 				setMovies(data);
+				setLoading(false);
 			});
 	}, [token]);
 
@@ -100,6 +105,8 @@ export const MainView = () => {
 							<>
 								{!user ? (
 									<Navigate to='/login' replace />
+								) : loading ? (
+									<Spinner animation='border' variant='primary' />
 								) : movies.length === 0 ? (
 									<Col>The list is absolutely empty!</Col>
 								) : (
