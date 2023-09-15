@@ -1,5 +1,6 @@
 import {useState} from 'react';
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./signup-view.scss";
 
 
@@ -82,7 +83,9 @@ export const SignupView = () => {
 			</Form.Group>
 
 			<Button  variant="primary" type="submit" className="submit-button">Submit</Button>
-			
+			<Row>
+				<Button variant='link' as={Link} to='/login'>Alredy a member? Login!</Button>
+				</Row>
 		</Form>
 	);
 };
