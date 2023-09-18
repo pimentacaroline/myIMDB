@@ -12,7 +12,7 @@ export const Director = () => {
 					<Col >
 						<h1 className='py-3'>Wes Anderson</h1>
 						<div className='py-2'>
-							<h4>Biography</h4>
+							<h4 className='fw-bold'>Biography</h4>
 							<p>
 								Wesley Wales Anderson (born May 1, 1969) is an American filmmaker. His films are known for their symmetry, eccentricity and distinctive visual and narrative styles, and he is cited by some critics as a modern-day example of the auteur.
 							</p>
@@ -21,13 +21,13 @@ export const Director = () => {
 							</p>
 						</div>
 						<div className='py-2'>
-							<h4>Themes and stories</h4>
+							<h4 className='fw-bold'>Themes and stories</h4>
 							<p>
 								Anderson has mostly directed fast-paced comedies marked by more serious or melancholic elements, with themes often centered on grief, loss of innocence, dysfunctional families, parental abandonment, adultery, sibling rivalry and unlikely friendships. His movies have been noted as unusually character-driven and, by turns, both derided and praised with terms like "literary geek chic"
 							</p>
 						</div>
 						<div className='py-2'>
-							<h4>Visual style</h4>
+							<h4 className='fw-bold'>Visual style</h4>
 							<p>
 								Anderson has been noted for extensive use of flat space camera moves, symmetrical compositions, knolling, snap-zooms, slow-motion walking shots, a deliberately limited color palette, and handmade art direction often utilizing miniatures.[65] These stylistic choices give his movies a distinctive quality that has provoked much discussion, critical study, supercuts, mash-ups, and parody. Many writers, critics, and Anderson himself have commented that this gives his movies the feel of being "self-contained worlds" or a "scale-model household".
 							</p>

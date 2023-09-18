@@ -40,61 +40,66 @@ export const SignupView = () => {
 		<>
 			<Row className='title w-100'>
 				<Col>
-					<h1 >We are happy that you are joining us!</h1>
+					<h1>Happy that you are joining us!</h1>
 				</Col>
 			</Row>
-		
-		
-			<Form onSubmit={handleSubmit} className="authentication-form ">
 
-				<h3 className="form-title">Create your account</h3>
+			<Row className='justify-content-center'>
+				<Col md={5}>
+					<Form onSubmit={handleSubmit} className="authentication-form ">
 
-				<Form.Group className="form-group" controlId="formUsername">
-					<Form.Label>Username:</Form.Label>
-					<Form.Control
-						type="text"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
-						required
-						minLength="3"
-					/>
-				</Form.Group>
+						<h3 className="form-title">Create your account</h3>
 
-				<Form.Group className="form-group" controlId="formPassword">
-					<Form.Label>Password:</Form.Label>
-					<Form.Control
-						type="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						required
-					/>
-				</Form.Group>
+						<Form.Group className="form-group" controlId="formUsername">
+							<Form.Label>Username:</Form.Label>
+							<Form.Control
+								type="text"
+								value={username}
+								onChange={(e) => setUsername(e.target.value)}
+								required
+								minLength="3"
+							/>
+						</Form.Group>
 
-				<Form.Group className="form-group">
-					<Form.Label>Email:</Form.Label>
-					<Form.Control
-						type="email"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						required
-					/>
-				</Form.Group>
+						<Form.Group className="form-group" controlId="formPassword">
+							<Form.Label>Password:</Form.Label>
+							<Form.Control
+								type="password"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+								required
+							/>
+						</Form.Group>
 
-				<Form.Group className="form-group">
-					<Form.Label>Birthday:</Form.Label>
-					<Form.Control
-						type="date"
-						value={birthday}
-						onChange={(e) => setBirthday(e.target.value)}
-						required
-					/>
-				</Form.Group>
+						<Form.Group className="form-group">
+							<Form.Label>Email:</Form.Label>
+							<Form.Control
+								type="email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+								required
+							/>
+						</Form.Group>
 
-				<Button variant="danger" type="submit" className="submit-button">Submit</Button>
-				<Row>
-					<Button variant='link' className='link' as={Link} to='/login'>Alredy a member? Login!</Button>
-				</Row>
-			</Form>
+						<Form.Group className="form-group">
+							<Form.Label>Birthday:</Form.Label>
+							<Form.Control
+								type="date"
+								value={birthday}
+								onChange={(e) => setBirthday(e.target.value)}
+								required
+							/>
+						</Form.Group>
+
+						<Button variant="danger" type="submit" className="submit-button">Submit</Button>
+						<Row>
+							<Button variant='link' className='link' as={Link} to='/login'>Alredy a member? Login!</Button>
+						</Row>
+					</Form>
+
+				</Col>
+			</Row>
+
 		</>
 	);
 };
