@@ -4,7 +4,7 @@ import { Button, Row, Col } from "react-bootstrap";
 import "./movie-view.scss";
 
 export const MovieView = ({ movies }) => {
-	const {movieId} = useParams();
+	const { movieId } = useParams();
 	const movie = movies.find((m) => m._id === movieId);
 
 	return (
@@ -19,7 +19,9 @@ export const MovieView = ({ movies }) => {
 				<Col md={6} sm={12} className="movie-info">
 					<div>
 						<h1>{movie.Title}</h1>
-						<Button variant="link" className="custom-link-button">{movie.Director.Name}</Button>
+						<Link to='/wes-anderson'>
+							<Button variant="link" className="custom-link-button">Wes Anderson</Button>
+						</Link>
 					</div>
 					<div>
 						<p>{movie.Description}</p>
