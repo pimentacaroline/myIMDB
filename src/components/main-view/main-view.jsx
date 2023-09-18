@@ -123,7 +123,7 @@ export const MainView = () => {
 								) : (
 									<>
 										<Row>
-											<Col className='subtitle'>
+											<Col>
 												<SearchForm onSearch={handleSearch} />
 											</Col>
 										</Row>
@@ -150,7 +150,7 @@ export const MainView = () => {
 								{!user ? (
 									<Navigate to='/login' replace />
 								) : (
-									<Col md={5}>
+									<Col>
 										<ProfileView
 											user={user}
 											token={token}

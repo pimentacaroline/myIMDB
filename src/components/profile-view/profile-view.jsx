@@ -70,9 +70,10 @@ export const ProfileView = ({ user, token, setUser, movies }) => {
 
 	return (
 		<>
-			<h1 className='profile'>My Profile</h1>
-			<Row>
-				<Col>
+			
+			<Row className='justify-content-center'>
+				<Col md={5}>
+				<h1 className='profile'>My Profile</h1>
 					<Form onSubmit={handleSubmit} >
 
 						<Form.Group controlId="formUsername" className='form-group'>
@@ -119,14 +120,14 @@ export const ProfileView = ({ user, token, setUser, movies }) => {
 				</Col>
 			</Row>
 
-			<Row>
-				<Col className='save-button'>
+			<Row className='justify-content-center'>
+				<Col className='save-button' md={5}>
 					<Button variant="primary" type="submit" onClick={handleSubmit}>Save changes</Button>
 				</Col>
 			</Row>
 
-			<Row >
-				<Col className="delete-button">
+			<Row className='justify-content-center'>
+				<Col className="delete-button" md={5}>
 					<Button variant="link" className="text-danger" onClick={handleShowModal}>
 						Delete my account
 					</Button>
@@ -135,12 +136,12 @@ export const ProfileView = ({ user, token, setUser, movies }) => {
 
 			<Row>
 				<Col>
-					<h2 className='favorite-title'>Favorite movies:</h2>
+					<h1 className='favorite-title'>Favorite movies:</h1>
 				</Col>
 			</Row>
-			<Row>	
+			<Row className='justify-content-center'>	
 				{result.map((movie) => (
-					<Col className="mb-5" key={movie._id} md={4}>
+					<Col className="mb-4" key={movie._id} xs={6} md={3} >
 						<MovieCard 
 							movie={movie} 
 							user={user}

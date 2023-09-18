@@ -10,9 +10,9 @@ export const MovieView = ({ movies }) => {
 	return (
 
 		<>
-			<Row className="h-100  movie-view">
+			<Row className="h-100  movie-view gy-5">
 
-				<Col md={6} sm={12} className="text-center px-4">
+				<Col md={6} sm={12} className="text-center gy-5 px-4">
 					<img src={movie.ImagePath} className="poster-image" />
 				</Col>
 
@@ -23,12 +23,20 @@ export const MovieView = ({ movies }) => {
 							<Button variant="link" className="custom-link-button link">Wes Anderson</Button>
 						</Link>
 					</div>
-					<div>
+					<div className="description-section">
 						<p>{movie.Description}</p>
 					</div>
-					<div>
-						<span>Genre: </span>
+					<div className='details-section'>
+						<span className='fw-bold'>Genre: </span>
 						<span>{movie.Genre.Name}</span>
+					</div>
+					<div>
+						<span className='fw-bold'>Release year: </span>
+						<span>{movie.Year}</span>
+					</div>
+					<div>
+						<span className='fw-bold'>Cast: </span>
+						<span>{movie.Cast}</span>
 					</div>
 					<div>
 						<Link to={`/`}>
