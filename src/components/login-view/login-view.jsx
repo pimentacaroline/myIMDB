@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { Button, Form, Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./login-view.scss";
+
 
 
 
@@ -44,7 +45,8 @@ export const LoginView = ({ onLoggedIn }) => {
 	return (
 		<>
 			<Row className='title'>
-				<Col >
+				<Col>
+				{/* <Image className='py-3' src='https://www.themoviedb.org/t/p/original/b1LH059EGnU01rsZwcqYzNjY7w9.jpg' rounded /> */}
 					<h1 >Fantastical</h1>
 				</Col>
 			</Row>
