@@ -123,12 +123,12 @@ export const MainView = () => {
 								) : (
 									<>
 										<Row>
-											<Col>
+											<Col className='subtitle'>
 												<SearchForm onSearch={handleSearch} />
 											</Col>
 										</Row>
 										{movies.map((movie) => (
-											<Col key={movie._id} md={3} className='gy-4 gx-4' >
+											<Col key={movie._id} md={3} xs={6} className='gy-5 gx-5' >
 												<MovieCard
 													movie={movie}
 													user={user}
