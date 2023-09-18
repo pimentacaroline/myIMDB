@@ -4,12 +4,12 @@ import { Row, Col, Image, Container } from 'react-bootstrap';
 export const Director = () => {
 	return (
 		<>
-			<Container>
+			<Container >
 				<Row>
-					<Col>
-						<Image src='https://www.themoviedb.org/t/p/original/b1LH059EGnU01rsZwcqYzNjY7w9.jpg' rounded />
+					<Col className='text-center'>
+						<Image className='py-3' src='https://www.themoviedb.org/t/p/original/b1LH059EGnU01rsZwcqYzNjY7w9.jpg' rounded />
 					</Col>
-					<Col>
+					<Col >
 						<h1 className='py-3'>Wes Anderson</h1>
 						<div className='py-2'>
 							<h4>Biography</h4>
