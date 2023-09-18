@@ -7,9 +7,9 @@ import "./index.scss";
 // Main component
 const MyFlixApplication = () => {
 	return (
-		<Container>
+		// <Container>
 			<MainView />
-		</Container>
+		// </Container>
 	);
 };
 

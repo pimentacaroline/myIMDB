@@ -6,6 +6,7 @@ import { SignupView } from '../signup-view/signup-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
 import { ProfileView } from '../profile-view/profile-view';
 import { SearchForm } from '../search-form/search-form';
+import { Director } from '../director-view/director-view';
 import { Row, Col } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Spinner } from '../spinner/spinner';
@@ -24,7 +25,7 @@ export const MainView = () => {
 		const filteredMovies = movies.filter((movie) =>
 			movie.Title.toLowerCase().includes(searchTerm.toLowerCase())
 		);
-	
+
 		// Update the movies state with the filtered results
 		setMovies(filteredMovies);
 	};
@@ -123,14 +124,14 @@ export const MainView = () => {
 									<>
 										<Row>
 											<Col>
-											<SearchForm onSearch={handleSearch} />
+												<SearchForm onSearch={handleSearch} />
 											</Col>
 										</Row>
 										{movies.map((movie) => (
 											<Col key={movie._id} md={3} className='gy-4 gx-4' >
-												<MovieCard 
-													movie={movie} 
-													user={user} 
+												<MovieCard
+													movie={movie}
+													user={user}
 													token={token}
 													setUser={setUser}
 												/>
@@ -156,6 +157,21 @@ export const MainView = () => {
 											setUser={setUser}
 											movies={movies}
 										/>
+									</Col>
+								)}
+							</>
+						}
+					/>
+
+					<Route
+						path='/wes-anderson'
+						element={
+							<>
+								{!user ? (
+									<Navigate to='/login' replace />
+								) : (
+									<Col>
+										<Director />
 									</Col>
 								)}
 							</>
