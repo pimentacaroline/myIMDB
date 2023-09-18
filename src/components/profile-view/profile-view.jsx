@@ -70,7 +70,7 @@ export const ProfileView = ({ user, token, setUser, movies }) => {
 
 	return (
 		<>
-			<h1 className='profile'>Profile</h1>
+			<h1 className='profile'>My Profile</h1>
 			<Row>
 				<Col>
 					<Form onSubmit={handleSubmit} >

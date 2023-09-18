@@ -43,12 +43,12 @@ export const LoginView = ({ onLoggedIn }) => {
 
 	return (
 		<>
-				<Row >
+				<Row className='title'>
 					<Col >
 						<h1 >Fantastical</h1>
 					</Col>
 				</Row>
-				<Row>
+				<Row className='subtitle'>
 					<Col>
 						<h3>A database of Wes Anderson movies</h3>
 						<p>This app is for members only. Please signup or login first.</p>
@@ -57,7 +57,7 @@ export const LoginView = ({ onLoggedIn }) => {
 
 			<Form onSubmit={handleSubmit} className="authentication-form">
 
-				<h2 className="form-title">Login</h2>
+				<h3 className="form-title">Login</h3>
 
 				<Form.Group className="form-group" controlId="formUsername">
 					<Form.Label>Username:</Form.Label>
@@ -80,9 +80,9 @@ export const LoginView = ({ onLoggedIn }) => {
 					/>
 				</Form.Group>
 				
-				<Button variant="primary" type="submit" className="submit-button">Submit</Button>
+				<Button variant="danger" type="submit" className="submit-button">Submit</Button>
 				<Row>
-				<Button variant='link' as={Link} to='/signup'>Not a member? Signup!</Button>
+				<Button variant='link' className='link' as={Link} to='/signup'>Not a member? Signup!</Button>
 				</Row>
 			</Form>
 
