@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Row, Col, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./login-view.scss";
+
 
 
 
@@ -41,33 +43,57 @@ export const LoginView = ({ onLoggedIn }) => {
 	};
 
 	return (
-		<Form onSubmit={handleSubmit} className="authentication-form">
+		<>
+			<Row className='subtitle'>
+				<Col>
+				<Image src='https://i.postimg.cc/s2vwLJFS/fantastical-logo-1.png/'/>
+				</Col>
+			</Row>
+			<Row className='subtitle'>
+				<Col>
+					<h3>A database of <span style={{ color: '#d52418' }}>Wes Anderson</span> movies</h3>
+					<p>This app is for members only. Please signup or login first.</p>
+				</Col>
+			</Row>
+			<Row className='justify-content-center'>
+				<Col  md={5}>
+					<Form onSubmit={handleSubmit} className="authentication-form">
 
-			<h2 className="form-title">Login</h2>
+						<h3 className="form-title">Login</h3>
 
-			<Form.Group className="form-group" controlId="formUsername">
-				<Form.Label>Username:</Form.Label>
-				<Form.Control
-					type="text"
-					value={username}
-					onChange={(e) => setUsername(e.target.value)}
-					required
-					minLength="3"
-				/>
-			</Form.Group>
+						<Form.Group className="form-group" controlId="formUsername">
+							<Form.Label>Username:</Form.Label>
+							<Form.Control
+								type="text"
+								value={username}
+								onChange={(e) => setUsername(e.target.value)}
+								required
+								minLength="3"
+							/>
+						</Form.Group>
 
-			<Form.Group className="form-group" controlId="formPassword">
-				<Form.Label>Password:</Form.Label>
-				<Form.Control
-					type="password"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					required
-				/>
-			</Form.Group>
+						<Form.Group className="form-group" controlId="formPassword">
+							<Form.Label>Password:</Form.Label>
+							<Form.Control
+								type="password"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+								required
+							/>
+						</Form.Group>
 
-			<Button variant="primary" type="submit" className="submit-button">Submit</Button>
-		</Form>
+						<Button variant="danger" type="submit" className="submit-button">Submit</Button>
+						<Row>
+							<Button variant='link' className='link' as={Link} to='/signup'>Not a member? Signup!</Button>
+						</Row>
+					</Form>
+
+
+				</Col>
+			</Row>
+
+
+		</>
 	);
 };
 
