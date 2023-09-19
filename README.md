@@ -43,7 +43,7 @@ MERN (MongoDB, Express, React, and Node.js)
 
 ## Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link - cooming soon](https://google.com)
+- [Live Demo Link](https://fantastical.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
