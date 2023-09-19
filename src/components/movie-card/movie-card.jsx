@@ -70,9 +70,9 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
 
   return (
     <>
-      <Card className='h-100 card text-bg-dark mb-3'>
+      <Card className='h-100 card text-bg-dark'>
         <Card.Img className='w-100' variant='top' src={movie.ImagePath} />
-        <Card.Body>
+        <Card.Body className='favorite'>
             {isFavorite ? (
               <Button variant='danger' onClick={removeFavoriteMovie}>
                 Remove from favorite
@@ -84,7 +84,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
             )}
         </Card.Body>
 
-        <Card.Body>
+        <Card.Body className='more-info'>
           <Link to={`/movies/${movie._id}`}>
             <Button className='info-button' variant='outline-light'>More Info</Button>
           </Link>

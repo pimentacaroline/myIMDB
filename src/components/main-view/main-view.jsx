@@ -4,9 +4,12 @@ import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
-import { ProfileView } from "../profile-view/profile-view";
+import { ProfileView } from '../profile-view/profile-view';
+import { SearchForm } from '../search-form/search-form';
+import { Director } from '../director-view/director-view';
 import { Row, Col } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Spinner } from '../spinner/spinner';
 import './main-view.scss';
 
 export const MainView = () => {
@@ -15,16 +18,29 @@ export const MainView = () => {
 	const [user, setUser] = useState(storedUser ? storedUser : null);
 	const [token, setToken] = useState(storedToken ? storedToken : null);
 	const [movies, setMovies] = useState([]);
+	const [loading, setLoading] = useState(true);
+
+	const handleSearch = (searchTerm) => {
+		// Filter the movies based on the search term
+		const filteredMovies = movies.filter((movie) =>
+			movie.Title.toLowerCase().includes(searchTerm.toLowerCase())
+		);
+
+		// Update the movies state with the filtered results
+		setMovies(filteredMovies);
+	};
 
 	useEffect(() => {
 		if (!token) return;
 
+		setLoading(true);
 		fetch('https://cp-movies-api-41b2d280c95b.herokuapp.com/movies', {
 			headers: { Authorization: `Bearer ${token}` }
 		})
 			.then((response) => response.json())
 			.then((data) => {
 				setMovies(data);
+				setLoading(false);
 			});
 	}, [token]);
 
@@ -49,7 +65,7 @@ export const MainView = () => {
 								{user ? (
 									<Navigate to='/' />
 								) : (
-									<Col md={5}>
+									<Col>
 										<SignupView />
 									</Col>
 								)}
@@ -64,7 +80,7 @@ export const MainView = () => {
 								{user ? (
 									<Navigate to='/' />
 								) : (
-									<Col md={5}>
+									<Col>
 										<LoginView
 											onLoggedIn={(user, token) => {
 												setUser(user);
@@ -100,15 +116,22 @@ export const MainView = () => {
 							<>
 								{!user ? (
 									<Navigate to='/login' replace />
+								) : loading ? (
+									<Spinner animation='border' variant='primary' />
 								) : movies.length === 0 ? (
 									<Col>The list is absolutely empty!</Col>
 								) : (
 									<>
+										<Row>
+											<Col>
+												<SearchForm onSearch={handleSearch} />
+											</Col>
+										</Row>
 										{movies.map((movie) => (
-											<Col key={movie._id} md={3} className='gy-4 gx-4' >
-												<MovieCard 
-													movie={movie} 
-													user={user} 
+											<Col key={movie._id} md={3} xs={6} className='gy-5 gx-5' >
+												<MovieCard
+													movie={movie}
+													user={user}
 													token={token}
 													setUser={setUser}
 												/>
@@ -127,13 +150,28 @@ export const MainView = () => {
 								{!user ? (
 									<Navigate to='/login' replace />
 								) : (
-									<Col md={5}>
+									<Col>
 										<ProfileView
 											user={user}
 											token={token}
 											setUser={setUser}
 											movies={movies}
 										/>
+									</Col>
+								)}
+							</>
+						}
+					/>
+
+					<Route
+						path='/wes-anderson'
+						element={
+							<>
+								{!user ? (
+									<Navigate to='/login' replace />
+								) : (
+									<Col>
+										<Director />
 									</Col>
 								)}
 							</>
