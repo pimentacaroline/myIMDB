@@ -1,11 +1,8 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <!-- <h1><b>Fantastical</b></h1> -->
-	[![Logo](https://i.postimg.cc/s2vwLJFS/fantastical-logo-1.png)](https://i.postimg.cc/s2vwLJFS/fantastical-logo-1.png)
+  <img src='https://i.postimg.cc/s2vwLJFS/fantastical-logo-1.png' alt='project logo'/>
 </div>
-
-
 
 
 <!-- TABLE OF CONTENTS -->
