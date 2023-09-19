@@ -18,9 +18,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 myIMDB <a name="about-project"></a>
+# 📖 Fantastical <a name="about-project"></a>
 
-myIMDB is a client-side app that connects with a movie database and allow user to find information about movies and bookmark them in a personal list.
+Fantastical is a client-side app that connects with a movie database and allow user to find information about movies and bookmark them in a personal list.
 
 
 ## 🛠 Built With <a name="built-with"></a>
