@@ -1,8 +1,11 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h1><b>myIMDB</b></h1>
+  <h1><b>Fantastical</b></h1>
 </div>
+
+[![Logo](https://i.postimg.cc/s2vwLJFS/fantastical-logo-1.png)](https://i.postimg.cc/s2vwLJFS/fantastical-logo-1.png)
+
 
 <!-- TABLE OF CONTENTS -->
 
@@ -60,16 +63,5 @@ This is a solo project guided by tutors and Mentors from <a href="https://career
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
 
-<!-- ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
- -->
 
